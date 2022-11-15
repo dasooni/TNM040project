@@ -1,35 +1,58 @@
-import React from 'react';
-import Grid from  'react-css-grid';
+import Grid from 'react-css-grid';
+import Timebar from '../components/Timebar';
+import React, { useState, useEffect } from 'react';
 
-
-class PlayScreen extends React.Component {
-    grid = () => {
-        return (
-            <Grid width={300} gap={10}>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-            </Grid>
-        );
-    };
-    
-
-    render() {
-        return (
-            <div className='container'>
-                {this.grid()}
-            </div>
-            
-        );
-    }
-    
-
+const getRandomPositon = () => {
+    const x = Math.random() * 100 + "%"
+    const y = Math.random() * 100 + "%"
+    return {left: x, top: y}
 }
+
+const generatePositions = () => {
+    const positions = []
+
+    //Kolla så objekten inte krockar med varandra
+
+
+    return [
+        getRandomPositon(),
+        getRandomPositon(),
+        getRandomPositon(),
+        getRandomPositon(),
+        getRandomPositon(),
+        getRandomPositon(),
+    ]
+}
+
+
+function PlayScreen() {
+    const [showBar, setShowBar] = useState(true)
+    const [shapes, setShapes] = useState(generatePositions())
+
+    useEffect(() => {
+        if (!showBar) {
+            setShowBar(true)
+        }
+    }, [showBar])
+
+    const reset = () => {
+        setShowBar(false)
+    }
+
+
+    return (
+        <div>
+        <button onClick={reset}>reset bar</button>
+        <div><Timebar visible={showBar} onTimer={console.log} /></div>
+            
+          <div className='game'>
+            {shapes.map(position => <div className='square' style={position}></div>)}
+            
+
+          </div>
+        </div>
+    )
+}
+
 
 export default PlayScreen;

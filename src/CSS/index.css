@@ -17,32 +17,69 @@ code {
   background-color: rgb(38, 38, 122);
   width: 200px;
   position: relative;
-  animation: fillBar 5s infinite;
+  animation: fillBar 5s forwards;
   animation-timing-function: linear;
+}
+
+.barWrapper {
+  height: 10px;
 }
 
 .playButton {
   border-radius: 25px;
   background-color: #9EDBEE;
-  width: 200px;
+  width: 250px;
   height: 50px;
-  position: fixed;
+  margin: 0;
+  position: absolute;
   top: 50%;
   left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .scoreboardButton {
-  border-radius: 25px;
+  border-radius: 25px; 
   background-color: #D9D9D9;
   width: 200px;
   height: 50px;
-  position: fixed;
-  top: 50%;
+  margin: 0;
+  position: absolute;
+  top: 60%;
   left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.infoButton {
+  position: absolute; 
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+
+}
+
+.game {
+  width: calc(100vw - 100px);
+  height: calc(100vh - 100px);
+  background-color: bisque;
+  position: relative;
+  margin: 50px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  
 }
 
 @keyframes fillBar {
 
-  from {left: 0px;}
-  to {left: 200px;}
+  from {width: 200px;}
+  to {width: 0;}
   }
