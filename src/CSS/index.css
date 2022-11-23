@@ -61,6 +61,17 @@ code {
 
 }
 
+.text {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: x-large;
+  font-family: 'Lucida Handwriting', cursive;
+}
+
 .game {
   width: calc(100vw - 100px);
   height: calc(100vh - 100px);
@@ -69,17 +80,22 @@ code {
   margin: 50px;
 }
 
-.square {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
+.strawberry {
+  transform: translate(-50%, -50%); 
   position: absolute;
-  transform: translate(-50%, -50%);
-  
 }
 
-@keyframes fillBar {
+/* .circle {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  transform: translate(-50%, -50%); 
+} */
 
+@keyframes fillBar {
   from {width: 200px;}
   to {width: 0;}
   }
