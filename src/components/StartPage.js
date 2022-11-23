@@ -1,32 +1,107 @@
 import '../CSS/index.css';
+import '../CSS/App.css';
 import info from '../images/info-icon.svg';
+import Particles from 'react-particles';
+import PlayScreen from './PlayScreen';
+import { loadFull } from "tsparticles";
+import { useCallback } from 'react';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useParams,
+    Link,
+} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function StartPage() {
+    const particlesInit = useCallback(async (engine) => {
+        await loadFull(engine);
+    }, []);
+    const particlesLoaded = useCallback(async (container) => {
+    }, []);
 
     return (
-        <div>
+        <div className="App">
             <h1>Tap-it</h1>
-            <div className = "playButton" style = {{textAlign: 'center' }}> {/*Timer starts when onClick*/}
+            <Particles
+                id="tsparticles"
+                init={particlesInit}
+                loaded={particlesLoaded}
+                className="Particles"
+                options={{
+                    background: {
+                        color: "#181A18",
+                    },
+                    fpsLimit: 60,
+                    interactivity: {
+                        detectsOn: "canvas",
+                        events: {
+                            resize: true
+                        }
+                    },
+                    particles: {
+                        color: {
+                            value: "#ffffff"
+                        },
+                        number: {
+                            density: {
+                                enable: true,
+                                area: 800
+                            },
+                            limit: 0,
+                            value: 300
+                        },
+                        opacity: {
+                            animation: {
+                                enable: true,
+                                minimumValue: 0.05,
+                                speed: 1,
+                                sync: false
+                            },
+                            random: {
+                                enable: true,
+                                minimumValue: 0.05
+                            },
+                            value: 1
+                        },
+                        shape: {
+                            type: "star"
+                        },
+                        size: {
+                            randmon: {
+                                enable: true,
+                                minimumValue: 0.5,
+                                value: 1
+                            }
+                        }
+                    }
 
-                Play
+                }}
+            />
+            <NavLink className="nav-link" to="/PlayScreen">
+                <div className="playButton" style={{ textAlign: 'center' }} > {/*Timer starts when onClick*/}
 
-            </div>
+                    <div style={{ textDecoration: 'none' }} className='text'>Play</div>
 
-            <div style = {{height: '10px'}}></div>
+                </div>
+            </NavLink>
 
-            <div className = "scoreboardButton">
+            <div style={{ height: '10px' }}></div>
 
-                Scoreboard
+            <NavLink style={{ textDecoration: 'none' }} className="nav-link" to="/Scoreboard">
+                <div className="scoreboardButton">
 
-            </div>
+                    <div className='text'>Scoreboard</div>
+
+                </div></NavLink>
+
 
             <div>
-            
-            <img className='infoButton' src={info} alt="Info" width="50px" height="50px"/>
-            
 
-
+                <img className='infoButton' src={info} alt="Info" width="50px" height="50px" />
             </div>
+
         </div>
     );
 }

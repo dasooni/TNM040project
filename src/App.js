@@ -12,14 +12,10 @@ import PlayScreen from './components/PlayScreen';
 import Navigation from './components/Navigation';
 
 function App() {
-
-
-
   return (
-    
     <div className="App">
       <Router>
-        <Navigation />
+        <Navigation/>
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/PlayScreen" element={<PlayScreen />} />
