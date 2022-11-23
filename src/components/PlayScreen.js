@@ -1,4 +1,3 @@
-import Grid from 'react-css-grid';
 import Timebar from '../components/Timebar';
 import React, { useState, useEffect } from 'react';
 import strawberry from '../images/strawberry.svg';
