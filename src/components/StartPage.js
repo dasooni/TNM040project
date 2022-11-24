@@ -14,7 +14,10 @@ import { loadFull } from "tsparticles";
 import React, { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 
-
+/**
+ * 
+ * @returns {string} - Start page main component. 
+ */
 function Start () {
     const particlesInit = useCallback(async (engine) => {
         // Engine belongs to particles.js, uses our own config. 
@@ -117,6 +120,9 @@ function Start () {
     );
 }
 
+/**
+ * Returns component
+ */
 class StartPage extends React.Component {
     
         render() {

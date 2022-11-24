@@ -64,6 +64,8 @@ const paths = [amoras, apple, avocado,
  * 
  * @param {shape} props 
  * @returns image. 
+ * Example: <Shape id = "apple"/>
+ * This is default export. 
  */
 export default function Shapes(props) {
     const  shape = shapes[props.src];
@@ -73,7 +75,8 @@ export default function Shapes(props) {
 /**
  * 
  * @returns {string} - random path to the image, changes on every refresh.
- * example: "../images/apple.svg"
+ * Example: "../images/apple.svg
+ * Export lets you use this function in other components.
  */
 export function RandomShape() {
     return paths[Math.floor(Math.random() * paths.length)];
