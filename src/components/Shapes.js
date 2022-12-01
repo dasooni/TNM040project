@@ -1,4 +1,6 @@
+
 import react from 'react';
+
 
 // import all the images here
 import amoras from '../images/amoras.svg';
@@ -24,7 +26,7 @@ import watermelon from '../images/watermelon.svg';
 /**
  * Shape array with all the images
  * @returns {string} - Image.
- * Example: <Shape id = "apple"/>
+ * Example: <shapes id = "apple"/>
  */
 export const shapes = [
     { id: "amoras", src: amoras, name: "Amoras"},
@@ -50,15 +52,10 @@ export const shapes = [
 ]
 
 /**
- * Path array to all the images
+ * Path to all the images
  * @returns {string} - path to the image, example: "../images/apple.svg"
  */
-const paths = [amoras, apple, avocado, 
-    banana, coconut, cacao, cherry, 
-    grapes, limon, mango, melon, orange, 
-    passionfruit, peach, pear, pineapple, plum, 
-    strawberry, watermelon];
-
+const paths = shapes.map(s => s.src)
 
 /**
  * 
@@ -72,13 +69,22 @@ export default function Shapes(props) {
     return <shape id={shape.id} src={shape.src} alt={shape.name} />;
 }
 
-/**
- * 
- * @returns {string} - random path to the image, changes on every refresh.
- * Example: "../images/apple.svg
- * Export lets you use this function in other components.
- */
-export function RandomShape() {
+// Using this for particles.js
+export function randomPath() {
     return paths[Math.floor(Math.random() * paths.length)];
 }
 
+export function RandomShape() {
+    // return shapeArray;
+    return shapes[Math.floor(Math.random() * shapes.length)];
+}
+
+export function RandomShapeArray(size) {
+    let shapeArray = [];
+
+    for (let i = 0; i < size; i++) {
+        const randShape = Math.floor( (Math.random() * paths.length) * i);
+        shapeArray.push(paths[randShape]);
+    }
+    return shapeArray;
+}

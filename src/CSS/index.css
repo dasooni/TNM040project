@@ -15,15 +15,21 @@ code {
 .bar {
   height: 10px;
   background-color: rgb(38, 38, 122);
-  width: 200px;
+  width: 100%;
   position: relative;
   animation: fillBar 5s forwards;
   animation-timing-function: linear;
+  align-items: center;
 }
 
 .barWrapper {
   height: 10px;
 }
+
+@keyframes fillBar {
+  from {width: 100%;}
+  to {width: 0;}
+  }
 
 .playButton {
   border-radius: 25px;
@@ -73,29 +79,89 @@ code {
 }
 
 .game {
-  width: calc(100vw - 100px);
-  height: calc(100vh - 100px);
-  background-color: bisque;
+  /* width: calc(100vw - 100px);
+  height: calc(100vh - 100px); */
+  width: calc(100vw - 150px);
+  height: calc(80vh - 100px);
+
+  background-color: rgb(202, 230, 240);
   position: relative;
   margin: 50px;
+
 }
 
-.strawberry {
+.fruits {
   transform: translate(-50%, -50%); 
   position: absolute;
 }
 
-/* .circle {
-  height: 25px;
-  width: 25px;
-  background-color: red;
-  border-radius: 50%;
-  display: inline-block;
+.scoreboard {
+  margin: 0;
+  width: 70%;
   position: absolute;
-  transform: translate(-50%, -50%); 
-} */
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
-@keyframes fillBar {
-  from {width: 200px;}
-  to {width: 0;}
-  }
+table {
+  font-family: 'Lucida Handwriting', cursive;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #9EDBEE;
+  color: white;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.headerScoreboard {
+  font-family: 'Lucida Handwriting', cursive;
+  font-size: xx-large;
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.backScoreboard {
+  position:absolute;
+  top:0;
+  left:0;
+  margin: 30px;
+}
+
+.headerOne {
+  text-align : center;
+  margin: auto;
+  background-color: rgb(202, 230, 240);
+  font-family: 'Lucida Handwriting', cursive;
+}
+
+.titel {
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: x-large;
+  font-family: 'Lucida Handwriting', cursive;
+  color: rgb(211, 148, 12);  
+  text-shadow: 1px 1px #423c20;
+}

@@ -1,7 +1,7 @@
 import Timebar from '../components/Timebar';
 import React, { useState, useEffect } from 'react';
-import strawberry from '../images/strawberry.svg';
-
+import { RandomShape } from './Shapes.js';
+import '../CSS/index.css';
 
 const getRandomPosition = () => {
     const x = Math.random() * 100
@@ -14,40 +14,48 @@ const getRandomPosition = () => {
     }
 }
 
-const generatePositions = () => {
-    const positions = [];
+const generatePositions = ( numberofShapes = 15 ) => {
+    let positions = [];
     let newPos;
+    console.log("101", "Number of shapes: ", numberofShapes);
 
-    let limit = 1000;
-     while (positions.length<6 && limit-- > 0) {
-        
-         if (positions.length==0) {
+
+    let limit = 10000;
+    while (positions.length < numberofShapes && limit-- > 0) {
+
+        if (positions.length == 0) {
             newPos = getRandomPosition();
             positions.push(newPos);
-         }
-         else {
+            console.log("107", "First position: ", newPos);
+        }
+        else {
             newPos = getRandomPosition();
             let collision = false;
-             for(let i = 0; i<positions.length; i++) {                
-                 if(Math.abs(positions[i].x - newPos.x) < 25 && Math.abs(positions[i].y - newPos.y) < 25) {
-                     collision = true;
-                    }
-             }
-             if (!collision) {
+            for (let i = 0; i < positions.length; i++) {
+                if (Math.abs(positions[i].x - newPos.x) < 15 && Math.abs(positions[i].y - newPos.y) < 15) {
+                    collision = true;
+                    console.log("115", "Collision: ", collision);
+                }
+            }
+            if (!collision) {
                 positions.push(newPos);
-             }
-         }
+                console.log("117","New position:", newPos.x.toFixed(), newPos.y.toFixed());
+            }
         }
-    
-    if (limit <= 0) {console.warn("ENDLESS LOOP");}   
+    }
+    if (limit <= 0) { console.warn("404", "ENDLESS LOOP"); }
 
     return positions;
 }
 
+let score = 0;
 
-function PlayScreen() {
+function PlayScreen({ onFinishedGame }) {
     const [showBar, setShowBar] = useState(true)
     const [shapes, setShapes] = useState(generatePositions())
+    console.log("Refresh PlayScreen", shapes);
+    const [answer, setAnswer] = useState(RandomShape())
+    const [right, setRight] = useState(generatePositions(1))
 
     useEffect(() => {
         if (!showBar) {
@@ -55,23 +63,58 @@ function PlayScreen() {
         }
     }, [showBar])
 
-    const reset = () => {
-        setShowBar(false)
-    }
-    return (
-        <div>
-         
-        <button onClick={reset}>reset bar</button>
-        <div><Timebar visible={showBar} onTimer={console.log} /></div>
-        <h1> Tap </h1>
-          <div className='game'>
-            {    
+    const onClickFruit = (shape) => {
+        if (answer.id === shape.id) {
+            //alert("Good job!")
+            //onFinishedGame({name: "foo", score: 1000})
+
+            setShowBar(false)
+            setShapes(generatePositions());
+            score += 10;
             
-            shapes.map(position =>        
-            <div style={position} className="strawberry">
-                <img src={strawberry} alt="strawberry" height="80px"/>
-            </div>)}
-          </div>
+            setAnswer(RandomShape());
+            setRight(generatePositions(1));
+
+            console.log("120","Score", score);
+            console.log("121","Answer", setShowBar);
+            console.log("122","Shapes", setShapes);
+            console.log("123","Answer", setAnswer);
+            console.log("124","Right", setRight);
+        }
+    }
+
+
+    
+    return (
+        <div className='headerOne'>
+            <div><Timebar visible={showBar} onTimer={console.log} /></div>
+            <h1> Fånga  <a onClick={onClickFruit}><img src={answer.src} alt="fruit" height="80px" /></a></h1>
+            <p> Poäng: {score} </p>
+            {/* <p>___________________________________________________________________ </p> */}
+            <div className='game'>
+      
+                {shapes.map(position => {
+                    const shape = RandomShape()
+                    return (
+                        <div>
+                            <div style={position} className="fruits" onClick={() => onClickFruit(shape)}>
+                                <img src={shape.src} alt="fruit" height="80px" />
+                            </div>
+                        </div>
+                    )
+                })}
+                {right.map(position => {
+                    const shape = answer;
+                    return (
+                        <div>
+                            <div style={position} className="fruits" onClick={() => onClickFruit(shape)}>
+                                <img src={shape.src} alt="fruit" height="80px" />
+                            </div>
+                        </div>
+                    )
+                }
+                )}
+            </div>
         </div>
     )
 }

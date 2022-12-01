@@ -1,7 +1,5 @@
 // Dependencies
-import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Routes, Route}
-    from 'react-router-dom';
+import React, { useState } from 'react';
 
 // CSS
 import './CSS/App.css';
@@ -9,19 +7,43 @@ import './CSS/App.css';
 // Components
 import StartPage from './components/StartPage';
 import PlayScreen from './components/PlayScreen';
-import Navigation from './components/Navigation';
+import Scoreboard from './components/Scoreboard';
+import GameOver from './components/GameOver';
+
 
 function App() {
+  const [appState, setAppState] = useState("start")
+  const [scores, setScores] = useState([])
+
+  const addScore = (newScore) => {
+    setScores([...scores, newScore])
+    setAppState("score")
+  }
+
+  console.log("1","appState", appState);
+  switch (appState) {
+    case "start":
+      // This is what changes the state of the app.
+      return <StartPage onPlayScreen={() => setAppState("playing")} 
+      onScoreBoard = {() => setAppState("score")} />
+
+    case "playing":
+      // <PlayScreen onFinishedGame={addScore}></PlayScreen>
+      return <PlayScreen onFinishedGame={addScore}></PlayScreen>
+      
+    case "score":
+      return <Scoreboard GoBackToStart = {() => setAppState("start")}></Scoreboard>
+      
+    
+    case "gameover":
+      return <GameOver> </GameOver>
+
+    default:
+      break;
+      
+  }
   return (
-    <div className="App">
-      <Router>
-        <Navigation/>
-        <Routes>
-          <Route path="/" element={<StartPage />} />
-          <Route path="/PlayScreen" element={<PlayScreen />} />
-        </Routes>
-      </Router>
-    </div>
+    <div>ERROR</div>
   );
 }
 export default App;
