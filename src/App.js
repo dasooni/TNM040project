@@ -1,49 +1,49 @@
 // Dependencies
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // CSS
-import './CSS/App.css';
+import "./CSS/App.css";
 
 // Components
-import StartPage from './components/StartPage';
-import PlayScreen from './components/PlayScreen';
-import Scoreboard from './components/Scoreboard';
-import GameOver from './components/GameOver';
-
+import StartPage from "./components/StartPage";
+import PlayScreen from "./components/PlayScreen";
+import Scoreboard from "./components/Scoreboard";
+import GameOver from "./components/GameOver";
 
 function App() {
-  const [appState, setAppState] = useState("start")
-  const [scores, setScores] = useState([])
+  const [appState, setAppState] = useState("start");
+  const [scores, setScores] = useState([]);
 
   const addScore = (newScore) => {
-    setScores([...scores, newScore])
-    setAppState("score")
-  }
+    setScores([...scores, newScore]);
+    setAppState("score");
+  };
 
-  console.log("1","appState", appState);
+  console.log("1", "appState", appState);
   switch (appState) {
     case "start":
       // This is what changes the state of the app.
-      return <StartPage onPlayScreen={() => setAppState("playing")} 
-      onScoreBoard = {() => setAppState("score")} />
+      return (
+        <StartPage
+          onPlayScreen={() => setAppState("playing")}
+          onScoreBoard={() => setAppState("score")}
+        />
+      );
 
     case "playing":
-      // <PlayScreen onFinishedGame={addScore}></PlayScreen>
-      return <PlayScreen onFinishedGame={addScore}></PlayScreen>
-      
+      return <PlayScreen onFinishedGame={addScore}></PlayScreen>;
+
     case "score":
-      return <Scoreboard GoBackToStart = {() => setAppState("start")}></Scoreboard>
-      
-    
+      return (
+        <Scoreboard GoBackToStart={() => setAppState("start")}></Scoreboard>
+      );
+
     case "gameover":
-      return <GameOver> </GameOver>
+      return <GameOver> </GameOver>;
 
     default:
       break;
-      
   }
-  return (
-    <div>ERROR</div>
-  );
+  return <div>ERROR</div>;
 }
 export default App;
