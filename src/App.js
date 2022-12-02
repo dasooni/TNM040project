@@ -31,7 +31,9 @@ function App() {
       );
 
     case "playing":
-      return <PlayScreen onFinishedGame={addScore}></PlayScreen>;
+      // return <PlayScreen onFinishedGame={addScore}></PlayScreen>;
+      return <PlayScreen></PlayScreen>;
+
 
     case "score":
       return (

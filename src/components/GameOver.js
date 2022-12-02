@@ -1,5 +1,9 @@
 import React from "react";
 
+// Particles.js
+import Particles from 'react-particles';
+import { loadFull } from "tsparticles";
+
 function End(props) {
     return (
         <div>
