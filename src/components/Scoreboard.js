@@ -1,12 +1,13 @@
 import backArrow from '../images/back-arrow.svg';
 import React from 'react';
+import {score} from '../components/PlayScreen';
 
 let name = '';
-let score;
 
 const dummy = [
     { name: "Johan", score: 1000 }
 ]
+
 //@returns {string}
 function Score ({scores = dummy, appState, GoBackToStart}) {
     return (
@@ -18,7 +19,7 @@ function Score ({scores = dummy, appState, GoBackToStart}) {
             <div className='scoreboard'>
                 <table>
                     <tr>
-                        <th>Namn</th>
+                        <th>Namn{score}</th>
                         <th>Poäng</th>
                     </tr>
 
