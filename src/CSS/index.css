@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Happy+Monkey');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Josefin Sans', cursive, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -75,7 +76,7 @@ code {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font-size: x-large;
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .game {
@@ -147,7 +148,7 @@ td {
   text-align : center;
   margin: auto;
   background-color: rgb(202, 230, 240);
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'Josefin Sans ', cursive;
 }
 
 .titel {
@@ -161,7 +162,7 @@ td {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font-size: x-large;
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'Happy Monkey', sans-serif;
   color: rgb(211, 148, 12);  
   text-shadow: 1px 1px #423c20;
 }

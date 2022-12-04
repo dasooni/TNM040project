@@ -72,10 +72,9 @@ function Play({ appState, onFinishedGame }) {
   const [timeLeft, setTimeLeft] = useState(5);
 
   const isGameOver = () => {
-    console.log("isGameOver called");
+    console.log("0","Game is over");
     onFinishedGame();
   };
-
 
   useEffect(() => {
     if (!showBar) {
