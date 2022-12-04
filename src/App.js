@@ -11,7 +11,7 @@ import Scoreboard from "./components/Scoreboard";
 import GameOver from "./components/GameOver";
 
 function App() {
-  const [appState, setAppState] = useState("start");
+  const [appState, setAppState] = useState("playing");
   const [scores, setScores] = useState([]);
 
   const addScore = (newScore) => {
@@ -32,19 +32,26 @@ function App() {
 
     case "playing":
       // return <PlayScreen onFinishedGame={addScore}></PlayScreen>;
-      return <PlayScreen></PlayScreen>;
-
+      return <PlayScreen
+        onFinishedGame= {() => setAppState("gameover")}
+      />
 
     case "score":
       return (
-        <Scoreboard GoBackToStart={() => setAppState("start")}></Scoreboard>
+        <Scoreboard GoBackToStart={() => setAppState("start")}>'
+        </Scoreboard>
       );
 
     case "gameover":
-      return <GameOver> </GameOver>;
+      return <GameOver
+        onPlayScreen={() => setAppState("playing")}
+        onScoreBoard={() => setAppState("score")}
+        onStartScreen={() => setAppState("start")}
+      > 
+      </GameOver>;
 
     default:
-      break;
+     break;
   }
   return <div>ERROR</div>;
 }
