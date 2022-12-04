@@ -5,7 +5,6 @@ import { useEffect } from 'react'
 function Timebar({ timeLeft, setTimeLeft, restartBar, onGameOver }) {
         useEffect(() => {
                 if (!timeLeft) {
-                        console.log("timeLeft is 0");
                         onGameOver();
                         return;
                 }
@@ -16,9 +15,7 @@ function Timebar({ timeLeft, setTimeLeft, restartBar, onGameOver }) {
 
                 return () => {
                         clearTimeout(time);
-                        console.log("Time:", time);
                         console.log("TimeLeft:", timeLeft);
-
                 }
         }
                 ,[onGameOver, setTimeLeft, timeLeft]);

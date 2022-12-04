@@ -32,8 +32,6 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
 
     return (
         <div className="App">
-
-
             <Particles
                 id="tsparticles"
                 init={particlesInit}
@@ -106,7 +104,7 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
                     detectRetina: true
                 }}
             ></Particles>
-            <div className='titel'><h1>Fånga den</h1></div>
+            <div className='titel'><h1> Fånga frukten</h1></div>
             <div className="playButton" style={{ textAlign: 'center' }} onClick={onPlayScreen}> {/*Timer starts when onClick*/}
                 <div style={{ textDecoration: 'none' }} className='text' >Spela</div>
             </div>
