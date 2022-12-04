@@ -104,7 +104,6 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
                         }
                     },
                     detectRetina: true
-
                 }}
             ></Particles>
             <div className='titel'><h1>Fånga den</h1></div>
@@ -127,7 +126,6 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
  * Returns component
  */
 class StartPage extends React.Component {
-
     render() {
         return (
             <Start appState={this.props.appState}
