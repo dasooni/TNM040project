@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import Timebar from "../components/Timebar";
-import React, { useState, useEffect, useCallback } from "react";
-import { RandomShape } from "./Shapes.js";
-import "../CSS/index.css";
-import GameOver from "../components/GameOver";
 
+import React, { useState, useEffect } from "react";
+
+import { RandomShape } from "./Shapes.js";
+
+import "../CSS/index.css";
 const getRandomPosition = () => {
   const x = Math.random() * 100;
   const y = Math.random() * 100;
@@ -56,74 +58,23 @@ const generatePositions = (numberofShapes = 15) => {
   return positions;
 };
 
-// const Timer = ({ seconds }) => {
-//     const [timeLeft, setTimeLeft] = useState(seconds);
-
-//     useEffect(() => {
-//       if(!timeLeft ) {
-//         setTimeLeft(5);
-//         return;
-//       }
-
-//       const intervalId = setTimeout(() => {
-//         setTimeLeft(timeLeft - 1);
-//       }, 1000);
-
-//       return () => clearTimeout(intervalId);
-
-//     }, [timeLeft]);
-
-//     return (
-//         <div>
-//             <h1>{timeLeft}</h1>
-//         </div>
-//     )
-//   }
-
 let score = 0;
 const plus = 10;
 
-/**
- *
- * @returns {string} - Start page main component.
- */
-function Play({ appState, onFinishedGame, onScoreBoard }) {
+function Play({ appState, onFinishedGame }) {
   const [showBar, setShowBar] = useState(true);
   const [shapes, setShapes] = useState(generatePositions());
   console.log("Refresh PlayScreen", shapes);
+
   const [answer, setAnswer] = useState(RandomShape());
   const [right, setRight] = useState(generatePositions(1));
 
-  // const [timeLeft, setTimeLeft] = useState(seconds);
+  const [timeLeft, setTimeLeft] = useState(5);
 
-  // useEffect(() => {
-  //   if(!timeLeft) {
-  //     setTimeLeft(5);
-  //     return;
-  //   }
-
-  //   const intervalId = setTimeout(() => {
-  //     setTimeLeft(timeLeft - 1);
-  //   }, 1000);
-
-  //   return () => clearTimeout(intervalId);
-
-  // }, [timeLeft]);
-
-  // return (
-  //     <div>
-  //         <h1>{timeLeft}</h1>
-  //     </div>
-  // )
-
-  // const [sec, setSec] = useState(
-  //   setTimeout(function () {
-  //     //GAMEOVER
-  //     <GameOver></GameOver>;
-  //     console.log("EEEEEENNNNND");
-  //     //Koppla till gameover sidan mha usestate
-  //   }, 5000)
-  // );
+  const isGameOver = () => {
+    console.log("0", "Game is over");
+    onFinishedGame();
+  };
 
   useEffect(() => {
     if (!showBar) {
@@ -132,22 +83,11 @@ function Play({ appState, onFinishedGame, onScoreBoard }) {
   }, [showBar]);
 
   const onClickFruit = (shape) => {
-    setTimeout(function () {
-      //GAMEOVER
-
-      console.log("EEEEEENNNNND");
-      {
-        onFinishedGame();
-      }
-    }, 5000);
-
     if (answer.id === shape.id) {
-      s;
-      clearTimeout(function () {}); //Funkar ej korrekt RESETar ej??
+      setTimeLeft(5);
       setShowBar(false);
       setShapes(generatePositions());
 
-      //setTimeLeft(5);
       if (score < 0) {
         score = 0;
       }
@@ -155,38 +95,20 @@ function Play({ appState, onFinishedGame, onScoreBoard }) {
 
       setAnswer(RandomShape());
       setRight(generatePositions(1));
-
-      console.log("120", "Score", score);
-      console.log("121", "Answer", setShowBar);
-      console.log("122", "Shapes", setShapes);
-      console.log("123", "Answer", setAnswer);
-      console.log("124", "Right", setRight);
-    } else if (answer.id != shape.id) {
+    } else {
       score = score - 5;
-
-      {
-        onFinishedGame();
-      }
     }
   };
-
-  // setTimeout(function(){ score -= 10 }, 500);
-  // setTimeout(function(){ score -= 10 }, 1000);
-  // setTimeout(function(){ score -= 10 }, 1500);
-  // setTimeout(function(){ score -= 10 }, 2000);
-  //   setTimeout(function () {
-  //     //GAMEOVER
-  //     <GameOver></GameOver>;
-  //     console.log("EEEEEENNNNND");
-  //     //Koppla till gameover sidan mha usestate
-  //   }, 5000);
 
   return (
     <div className="headerOne">
       <div>
-        <Timebar visible={showBar} onTimer={console.log} />
-        {/* <Timer seconds = {5} /> */}
-        {/* <div className="scoreboardButton" onClick={onFinishedGame}> </div> */}
+        <Timebar
+          timeLeft={timeLeft}
+          setTimeLeft={setTimeLeft}
+          restartBar={showBar}
+          onGameOver={isGameOver}
+        />
       </div>
       <h1>
         {" "}
@@ -195,13 +117,10 @@ function Play({ appState, onFinishedGame, onScoreBoard }) {
           <img src={answer.src} alt="fruit" height="80px" />
         </a>
       </h1>
-      <p> Poäng: {score}</p>
-
-      {/* <p>___________________________________________________________________ </p> */}
+      <p> Poäng: {score} </p>
       <div className="game">
         {shapes.map((position) => {
           const shape = RandomShape();
-
           return (
             <div>
               <div
@@ -233,19 +152,17 @@ function Play({ appState, onFinishedGame, onScoreBoard }) {
   );
 }
 
-export function PlayScore() {
-  return score;
-}
-
 class PlayScreen extends React.Component {
   render() {
     return (
       <Play
         appState={this.props.appState}
         onFinishedGame={this.props.onFinishedGame}
-        onScoreBoard={this.props.onScoreBoard}
       />
     );
   }
 }
-export default Play;
+export default PlayScreen;
+export function PlayScore() {
+  return score;
+}

@@ -115,7 +115,7 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
         }}
       ></Particles>
       <div className="titel">
-        <h1>Fånga den</h1>
+        <h1> Fånga frukten</h1>
       </div>
       <div
         className="playButton"
@@ -143,6 +143,22 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
         />
       </div>
     </div>
+    // </div>
+
+    //   <div style={{ height: "10px" }}></div>
+    //   <div className="scoreboardButton" onClick={onScoreBoard}>
+    //     <div className="text">Poängtavla</div>
+    //   </div>
+    //   <div>
+    //     <img
+    //       className="infoButton"
+    //       src={info}
+    //       alt="Info"
+    //       width="50px"
+    //       height="50px"
+    //     />
+    //   </div>
+    // </div>
   );
 }
 
