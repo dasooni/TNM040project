@@ -27,13 +27,15 @@ function App() {
         <StartPage
           onPlayScreen={() => setAppState("playing")}
           onScoreBoard={() => setAppState("score")}
+          onFinishedGame={() => setAppState("gameover")}
         />
       );
 
     case "playing":
       // return <PlayScreen onFinishedGame={addScore}></PlayScreen>;
-      return <PlayScreen></PlayScreen>;
-
+      return (
+        <PlayScreen onFinishedGame={() => setAppState("gameover")}></PlayScreen>
+      );
 
     case "score":
       return (
