@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Timebar from "../components/Timebar";
-
 import React, { useState, useEffect } from "react";
-
 import { RandomShape } from "./Shapes.js";
-
 import "../CSS/index.css";
+
 const getRandomPosition = () => {
   const x = Math.random() * 100;
   const y = Math.random() * 100;
@@ -96,7 +94,10 @@ function Play({ appState, onFinishedGame }) {
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
-      score = score - 5;
+      //score = score - 5;
+      {
+        onFinishedGame();
+      }
     }
   };
 
