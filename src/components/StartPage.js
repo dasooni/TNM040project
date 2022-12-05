@@ -13,6 +13,9 @@ import { loadFull } from "tsparticles";
 // Page redirect & engine callbacks
 import React, { useCallback } from "react";
 
+// MainTheme music
+import mainTheme from "../sounds/mainTheme.mp3";
+
 /**
  *
  * @returns {string} - Start page main component.
@@ -29,6 +32,10 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
     // Container belongs to particles.js.
     console.log(container);
   }, []);
+
+  let audio = new Audio(mainTheme);
+  audio.loop = true;
+  audio.play();
 
   return (
     <div className="App">
@@ -172,6 +179,8 @@ class StartPage extends React.Component {
         appState={this.props.appState}
         onPlayScreen={this.props.onPlayScreen}
         onScoreBoard={this.props.onScoreBoard}
+
+        
       />
     );
   }
