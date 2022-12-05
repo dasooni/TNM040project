@@ -10,6 +10,9 @@ import PlayScreen from "./components/PlayScreen";
 import Scoreboard from "./components/Scoreboard";
 import GameOver from "./components/GameOver";
 
+
+import mainTheme from "./sounds/mainTheme.mp3";
+
 function App() {
   const [appState, setAppState] = useState("playing");
   const [scores, setScores] = useState([]);
@@ -19,10 +22,10 @@ function App() {
     setAppState("score");
   };
 
+  
   console.log("1", "appState", appState);
   switch (appState) {
     case "start":
-      // This is what changes the state of the app.
       return (
         <StartPage
           onPlayScreen={() => setAppState("playing")}
@@ -36,11 +39,13 @@ function App() {
       return <PlayScreen onFinishedGame={() => setAppState("gameover")} />;
 
     case "score":
+
       return (
         <Scoreboard GoBackToStart={() => setAppState("start")}>'</Scoreboard>
       );
 
     case "gameover":
+
       return (
         <GameOver
           onPlayScreen={() => setAppState("playing")}
