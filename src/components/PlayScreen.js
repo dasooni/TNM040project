@@ -4,6 +4,10 @@ import React, { useState, useEffect } from "react";
 import { RandomShape } from "./Shapes.js";
 import "../CSS/index.css";
 
+import rightFruit from "../sounds/sucess.mp3";
+
+import levelTheme from "../sounds/levelTheme.wav";
+
 const getRandomPosition = () => {
   const x = Math.random() * 100;
   const y = Math.random() * 100;
@@ -69,6 +73,8 @@ function Play({ appState, onFinishedGame }) {
 
   const [timeLeft, setTimeLeft] = useState(5);
 
+  let sucess = new Audio(rightFruit);
+
   const isGameOver = () => {
     console.log("0", "Game is over");
     onFinishedGame();
@@ -86,6 +92,9 @@ function Play({ appState, onFinishedGame }) {
       setShowBar(false);
       setShapes(generatePositions());
 
+      
+      sucess.play();
+
       if (score < 0) {
         score = 0;
       }
@@ -94,13 +103,12 @@ function Play({ appState, onFinishedGame }) {
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
-      //score = score - 5;
-      {
-        onFinishedGame();
-      }
+      //score = score - 5;  
+      onFinishedGame();
     }
   };
 
+  
   return (
     <div className="headerOne">
       <div>
@@ -161,6 +169,8 @@ class PlayScreen extends React.Component {
         onFinishedGame={this.props.onFinishedGame}
       />
     );
+
+    
   }
 }
 export default PlayScreen;
