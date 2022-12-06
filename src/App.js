@@ -11,7 +11,7 @@ import Scoreboard from "./components/Scoreboard";
 import GameOver from "./components/GameOver";
 
 function App() {
-  const [appState, setAppState] = useState("playing");
+  const [appState, setAppState] = useState("start");
   const [scores, setScores] = useState([]);
 
   const addScore = (newScore) => {

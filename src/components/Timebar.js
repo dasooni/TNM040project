@@ -8,8 +8,8 @@ function Timebar({ timeLeft, setTimeLeft, restartBar, onGameOver }) {
       return;
     }
     const time = setTimeout(() => {
-      setTimeLeft(timeLeft - 1);
-    }, 1000);
+      setTimeLeft(timeLeft - 5);
+    }, 5000);
 
     return () => {
       clearTimeout(time);
