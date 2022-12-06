@@ -140,6 +140,7 @@ function End({ appState, onPlayScreen, onScoreBoard, onStartScreen }) {
         <h1 className="gameover-header">Spelet är Slut!</h1>
         <div className="gameover-content">
           <button className="play-again" onClick={onPlayScreen}>
+            {/* Måste resetta score */}
             Spela igen
           </button>
           <button className="scoreboard" onClick={onScoreBoard}>
