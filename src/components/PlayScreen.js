@@ -92,7 +92,6 @@ function Play({ appState, onFinishedGame }) {
       setShowBar(false);
       setShapes(generatePositions());
 
-      
       sucess.play();
 
       if (score < 0) {
@@ -103,12 +102,11 @@ function Play({ appState, onFinishedGame }) {
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
-      //score = score - 5;  
+      score = 0;
       onFinishedGame();
     }
   };
 
-  
   return (
     <div className="headerOne">
       <div>
@@ -169,8 +167,6 @@ class PlayScreen extends React.Component {
         onFinishedGame={this.props.onFinishedGame}
       />
     );
-
-    
   }
 }
 export default PlayScreen;
