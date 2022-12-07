@@ -115,7 +115,7 @@ code {
 }
 
 table {
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -131,11 +131,12 @@ th {
 td {
   border: 1px solid #ddd;
   padding: 8px;
+  
   text-align: center;
 }
 
 .headerScoreboard {
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: xx-large;
   margin: 0;
   position: absolute;

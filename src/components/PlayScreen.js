@@ -102,10 +102,10 @@ function Play({ appState, onFinishedGame }) {
       setRight(generatePositions(1));
     } else {
       //skicka score till scoreboard
-      
-
       score = 0;
       onFinishedGame();
+      //<div><input type="text" placeholder="Namn.."/></div>
+
     }
   };
 
