@@ -2,16 +2,12 @@ import React from "react";
 
 import backArrow from "../images/back-arrow.svg";
 
-import { PlayScore } from "../components/PlayScreen.js";
+//import { PlayScore } from "../components/PlayScreen.js";
 
-let name = "";
-
-let printScore = PlayScore();
-
-// let dummy = [{ name: "Johan", score: { printScore } }];
+const retrievedObject = JSON.parse(window.localStorage.getItem('data'))
 let dummy = [{ name: "Johan", score: 100 }];
 
-function Score({ scores = dummy, appState, GoBackToStart }) {
+function Score({ scores = dummy, GoBackToStart }) {
   return (
     <div>
       <div className="backScoreboard" onClick={GoBackToStart}>
@@ -25,11 +21,11 @@ function Score({ scores = dummy, appState, GoBackToStart }) {
             <th>Poäng</th>
           </tr>
 
-          {scores.map((currScore) => {
+          {scores.map(() => {
             return (
               <tr>
-                <td>{currScore.name}</td>
-                <td>{currScore.score}</td>
+                <td>{retrievedObject.name}</td>
+                <td>{retrievedObject.score}</td>
               </tr>
             );
           })}

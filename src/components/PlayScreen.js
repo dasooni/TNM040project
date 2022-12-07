@@ -101,10 +101,12 @@ function Play({ appState, onFinishedGame }) {
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
-      //skicka score till scoreboard
+
+      const myData = { name: 'Hej', score: score }
+      window.localStorage.setItem('data', JSON.stringify(myData))
+
       score = 0;
       onFinishedGame();
-      //<div><input type="text" placeholder="Namn.."/></div>
 
     }
   };
@@ -172,6 +174,3 @@ class PlayScreen extends React.Component {
   }
 }
 export default PlayScreen;
-export function PlayScore() {
-  return score;
-}
