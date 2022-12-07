@@ -5,7 +5,6 @@ import { RandomShape } from "./Shapes.js";
 import "../CSS/index.css";
 
 import rightFruit from "../sounds/sucess.mp3";
-
 import levelTheme from "../sounds/levelTheme.wav";
 
 const getRandomPosition = () => {
@@ -102,6 +101,9 @@ function Play({ appState, onFinishedGame }) {
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
+      //skicka score till scoreboard
+      
+
       score = 0;
       onFinishedGame();
     }
