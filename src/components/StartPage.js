@@ -3,10 +3,8 @@ import "../CSS/index.css";
 import "../CSS/App.css";
 
 // Icons
-import info from "../images/info-icon.svg";
 import { randomPath } from "./Shapes.js";
-
-// Particles.js
+import { ReactComponent as MusicNote } from "../images/music_note.svg";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
@@ -30,15 +28,19 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
 
   const particlesLoaded = useCallback(async (container) => {
     // Container belongs to particles.js.
+    
     console.log(container);
   }, []);
 
-  let audio = new Audio(mainTheme);
-  audio.loop = true;
-  audio.play();
+  const MusicControl = () => { 
+    let audio = new Audio(mainTheme);
+    audio.play();
+    console.log("Audio playing");
+  }
 
   return (
-    <div className="App">
+    
+    <div>
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -121,24 +123,26 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
           detectRetina: true,
         }}
       ></Particles>
+      
+      <button className="note"  onClick = {MusicControl}>
+        <MusicNote />
+      </button>
+
+
+
       <div className="titel">
         <h1> Fånga frukten!</h1>
       </div>
-      <div
-        className="playButton"
-        style={{ textAlign: "center" }}
-        onClick={onPlayScreen}
-      >
-        {" "}
-        <button style={{ textDecoration: "none" }} className="text">
-          Spela
-        </button>
+
+      <div className="playButton" style={{ textAlign: "center" }} onClick={onPlayScreen}>
+        <button style={{ textDecoration: "none" }} className="text"> Spela </button>
       </div>
 
-      <div style={{ height: "10px" }}></div>
       <div className="scoreboardButton" onClick={onScoreBoard}>
         <button className="text">Poängtavla</button>
       </div>
+
+
     </div>
   );
 }

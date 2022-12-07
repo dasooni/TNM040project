@@ -4,9 +4,34 @@
 }
 
 .Particles {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
+}
+
+.note {
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+
+  background-color: transparent;
+  border: 0px solid transparent;
+  
+}
+
+.note::selection {
+  background-color: rgba(255, 0, 0, 0.096);
+  border: 0px solid darkred;
+}
+
+.note:hover {
+  background-color: rgba(255, 0, 0, 0.096);
+  border: 0px solid darkred;
+
 }

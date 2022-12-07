@@ -5,7 +5,7 @@ import { RandomShape } from "./Shapes.js";
 import "../CSS/index.css";
 
 import rightFruit from "../sounds/sucess.mp3";
-import levelTheme from "../sounds/levelTheme.wav";
+//import levelTheme from "../sounds/levelTheme.wav";
 
 const getRandomPosition = () => {
   const x = Math.random() * 100;
@@ -25,7 +25,7 @@ const generatePositions = (numberofShapes = 10) => {
 
   let limit = 10000;
   while (positions.length < numberofShapes && limit-- > 0) {
-    if (positions.length == 0) {
+    if (positions.length === 0) {
       newPos = getRandomPosition();
       positions.push(newPos);
       console.log("107", "First position: ", newPos);

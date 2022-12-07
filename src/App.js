@@ -10,18 +10,14 @@ import PlayScreen from "./components/PlayScreen";
 import Scoreboard from "./components/Scoreboard";
 import GameOver from "./components/GameOver";
 
-
-import mainTheme from "./sounds/mainTheme.mp3";
-
 function App() {
   const [appState, setAppState] = useState("start");
-  const [scores, setScores] = useState([]);
+ // const [scores, setScores] = useState([]);
 
-  const addScore = (newScore) => {
-    setScores([...scores, newScore]);
-    setAppState("score");
-  };
-
+  // const addScore = (newScore) => {
+  //   setScores([...scores, newScore]);
+  //   setAppState("score");
+  // };
   
   console.log("1", "appState", appState);
   switch (appState) {

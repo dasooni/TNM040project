@@ -1,4 +1,3 @@
-import react from "react";
 
 // import all the images here
 import amoras from "../images/amoras.svg";

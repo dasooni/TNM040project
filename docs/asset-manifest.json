@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/TNM040project/static/css/main.c534ddde.css",
-    "main.js": "/TNM040project/static/js/main.cecb28f1.js",
+    "main.css": "/TNM040project/static/css/main.4f53e77d.css",
+    "main.js": "/TNM040project/static/js/main.888c1b34.js",
     "static/js/787.ec704a7a.chunk.js": "/TNM040project/static/js/787.ec704a7a.chunk.js",
     "static/media/levelTheme.wav": "/TNM040project/static/media/levelTheme.1410a48041d5794e3435.wav",
     "static/media/mainTheme.mp3": "/TNM040project/static/media/mainTheme.eed6be6f0a7fb92288d4.mp3",
@@ -28,12 +28,12 @@
     "static/media/cherry.svg": "/TNM040project/static/media/cherry.c9b7a5aea24ae254e723293be0592204.svg",
     "index.html": "/TNM040project/index.html",
     "static/media/orange.svg": "/TNM040project/static/media/orange.a800b4d2df1d09e49adce6a4860ce222.svg",
-    "main.c534ddde.css.map": "/TNM040project/static/css/main.c534ddde.css.map",
-    "main.cecb28f1.js.map": "/TNM040project/static/js/main.cecb28f1.js.map",
+    "main.4f53e77d.css.map": "/TNM040project/static/css/main.4f53e77d.css.map",
+    "main.888c1b34.js.map": "/TNM040project/static/js/main.888c1b34.js.map",
     "787.ec704a7a.chunk.js.map": "/TNM040project/static/js/787.ec704a7a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c534ddde.css",
-    "static/js/main.cecb28f1.js"
+    "static/css/main.4f53e77d.css",
+    "static/js/main.888c1b34.js"
   ]
 }
