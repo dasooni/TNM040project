@@ -101,8 +101,16 @@ function Play({ appState, onFinishedGame }) {
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
+      if (score > 50) {
+        <form>
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+  <input type="submit" value="Submit" />
+</form>
+      }
 
-      
       const myData = { name: 'Hej', score: score }      
       window.localStorage.setItem('data', JSON.stringify(myData))
 
