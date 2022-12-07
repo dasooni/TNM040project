@@ -146,9 +146,9 @@ function End({ appState, onPlayScreen, onScoreBoard, onStartScreen }) {
           <button className="scoreboard" onClick={onScoreBoard}>
             Poängtavla
           </button>
-          <button className="start-again" onClick={onStartScreen}>
+          {/* <button className="start-again" onClick={onStartScreen}>
             Start
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

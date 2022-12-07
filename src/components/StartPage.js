@@ -130,7 +130,6 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
         onClick={onPlayScreen}
       >
         {" "}
-        {/*Timer starts when onClick*/}
         <div style={{ textDecoration: "none" }} className="text">
           Spela
         </div>
@@ -140,32 +139,7 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
       <div className="scoreboardButton" onClick={onScoreBoard}>
         <div className="text">Poängtavla</div>
       </div>
-      <div>
-        <img
-          className="infoButton"
-          src={info}
-          alt="Info"
-          width="50px"
-          height="50px"
-        />
-      </div>
     </div>
-    // </div>
-
-    //   <div style={{ height: "10px" }}></div>
-    //   <div className="scoreboardButton" onClick={onScoreBoard}>
-    //     <div className="text">Poängtavla</div>
-    //   </div>
-    //   <div>
-    //     <img
-    //       className="infoButton"
-    //       src={info}
-    //       alt="Info"
-    //       width="50px"
-    //       height="50px"
-    //     />
-    //   </div>
-    // </div>
   );
 }
 
@@ -179,8 +153,6 @@ class StartPage extends React.Component {
         appState={this.props.appState}
         onPlayScreen={this.props.onPlayScreen}
         onScoreBoard={this.props.onScoreBoard}
-
-        
       />
     );
   }
