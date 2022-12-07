@@ -5,7 +5,6 @@ import { RandomShape } from "./Shapes.js";
 import "../CSS/index.css";
 
 import rightFruit from "../sounds/sucess.mp3";
-import levelTheme from "../sounds/levelTheme.wav";
 
 const getRandomPosition = () => {
   const x = Math.random() * 100;
@@ -97,20 +96,21 @@ function Play({ appState, onFinishedGame }) {
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
-     
-      const name = window.prompt('Name: ')
-      const myData = { name: name, score: score }
-      let oldArray = JSON.parse(window.localStorage.getItem("data"))
-      if (oldArray == null) {
-        oldArray = []
-      }
-      oldArray.push(myData);
-      window.localStorage.setItem('data', JSON.stringify(oldArray))
+      if (score > 100) {
+        const name = window.prompt("Name: ");
+        const myData = { name: name, score: score };
 
+        let oldArray = JSON.parse(window.localStorage.getItem("data"));
+
+        if (oldArray == null) {
+          oldArray = [];
+        }
+        oldArray.push(myData);
+        window.localStorage.setItem("data", JSON.stringify(oldArray));
+      }
       //localStorage.clear();
       score = 0;
       onFinishedGame();
-
     }
   };
 

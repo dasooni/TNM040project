@@ -15,6 +15,7 @@ import React, { useCallback } from "react";
 
 // MainTheme music
 import mainTheme from "../sounds/mainTheme.mp3";
+import klick from "../sounds/Klick_fx_2.wav";
 
 /**
  *
@@ -36,6 +37,8 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
   let audio = new Audio(mainTheme);
   audio.loop = true;
   audio.play();
+
+  let Klick = new Audio(klick);
 
   return (
     <div className="App">
@@ -130,14 +133,20 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
         onClick={onPlayScreen}
       >
         {" "}
-        <button style={{ textDecoration: "none" }} className="text">
+        <button
+          style={{ textDecoration: "none" }}
+          className="text"
+          onClick={() => Klick.play()}
+        >
           Spela
         </button>
       </div>
 
       <div style={{ height: "10px" }}></div>
       <div className="scoreboardButton" onClick={onScoreBoard}>
-        <button className="text">Poängtavla</button>
+        <button className="text" onClick={() => Klick.play()}>
+          Poängtavla
+        </button>
       </div>
     </div>
   );
