@@ -102,10 +102,11 @@ function Play({ appState, onFinishedGame }) {
       setRight(generatePositions(1));
     } else {
 
-      const myData = { name: 'Hej', score: score }
       
+      const myData = { name: 'Hej', score: score }      
       window.localStorage.setItem('data', JSON.stringify(myData))
 
+      //localStorage.clear();
       score = 0;
       onFinishedGame();
 
