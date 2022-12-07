@@ -122,7 +122,7 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
         }}
       ></Particles>
       <div className="titel">
-        <h1> Fånga frukten</h1>
+        <h1> Fånga frukten!</h1>
       </div>
       <div
         className="playButton"
@@ -130,14 +130,14 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
         onClick={onPlayScreen}
       >
         {" "}
-        <div style={{ textDecoration: "none" }} className="text">
+        <button style={{ textDecoration: "none" }} className="text">
           Spela
-        </div>
+        </button>
       </div>
 
       <div style={{ height: "10px" }}></div>
       <div className="scoreboardButton" onClick={onScoreBoard}>
-        <div className="text">Poängtavla</div>
+        <button className="text">Poängtavla</button>
       </div>
     </div>
   );

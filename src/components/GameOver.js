@@ -143,12 +143,10 @@ function End({ appState, onPlayScreen, onScoreBoard, onStartScreen }) {
             {/* Måste resetta score */}
             Spela igen
           </button>
-          <button className="scoreboard" onClick={onScoreBoard}>
+          <button className="scoreBoard" onClick={onScoreBoard}>
             Poängtavla
           </button>
-          {/* <button className="start-again" onClick={onStartScreen}>
-            Start
-          </button> */}
+
         </div>
       </div>
     </div>
