@@ -5,7 +5,7 @@ import { RandomShape } from "./Shapes.js";
 import "../CSS/index.css";
 
 import rightFruit from "../sounds/sucess.mp3";
-import levelTheme from "../sounds/levelTheme.wav";
+// import levelTheme from "../sounds/levelTheme.wav";
 
 const getRandomPosition = () => {
   const x = Math.random() * 100;
