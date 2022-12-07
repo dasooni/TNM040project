@@ -27,9 +27,6 @@ function Score({ GoBackToStart }) {
               </tr>
             )
           })}
-
-
-
         </table>
       </div>
     </div>

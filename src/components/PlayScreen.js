@@ -18,7 +18,7 @@ const getRandomPosition = () => {
   };
 };
 
-const generatePositions = (numberofShapes = 15) => {
+const generatePositions = (numberofShapes = 10) => {
   let positions = [];
   let newPos;
   console.log("101", "Number of shapes: ", numberofShapes);
