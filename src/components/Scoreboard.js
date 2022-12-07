@@ -21,8 +21,7 @@ function Score({GoBackToStart }) {
               <tr>
                 <td>{retrievedObject.name}</td>
                 <td>{retrievedObject.score}</td>
-                <td>{retrievedObject.name}</td>
-                <td>{retrievedObject.score}</td>
+
               </tr>              
           
           
