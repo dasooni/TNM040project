@@ -2,10 +2,9 @@ import React from "react";
 
 import backArrow from "../images/back-arrow.svg";
 
-const retrievedObject = JSON.parse(window.localStorage.getItem('data'))
-//let dummy = [{ name: "Johan", score: 100 }];
 
-function Score({GoBackToStart }) {
+function Score({ GoBackToStart }) {
+  const retrievedObject = JSON.parse(window.localStorage.getItem('data'))
   return (
     <div>
       <div className="backScoreboard" onClick={GoBackToStart}>
@@ -17,28 +16,24 @@ function Score({GoBackToStart }) {
           <tr>
             <th>Namn</th>
             <th>Poäng</th>
-          </tr>             
+          </tr>
+          
+          {
+          retrievedObject.map(({ name, score }) => {
+            return (
               <tr>
-                <td>{retrievedObject.name}</td>
-                <td>{retrievedObject.score}</td>
+                <td>{name}</td>
+                <td>{score}</td>
+              </tr>
+            )
+          })}
 
-              </tr>              
-          
-          
+
+
         </table>
       </div>
     </div>
   );
 }
 
-class Scoreboard extends React.Component {
-  render() {
-    return (
-      <Score
-        appState={this.props.appState}
-        GoBackToStart={this.props.GoBackToStart}
-      />
-    );
-  }
-}
-export default Scoreboard;
+export default Score;

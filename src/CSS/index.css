@@ -151,6 +151,7 @@ td {
   top:0;
   left:0;
   margin: 30px;
+  
 }
 
 .headerOne {
@@ -173,5 +174,5 @@ td {
   font-family: 'Luckiest Guy', sans-serif;
   color: rgb(211, 148, 12);  
   text-shadow: 1px 1px #423c20;
-  font-size: 30px;
+  font-size: 3.1vw;
 }

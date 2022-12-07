@@ -92,29 +92,20 @@ function Play({ appState, onFinishedGame }) {
       setShapes(generatePositions());
 
       sucess.play();
-
-      if (score < 0) {
-        score = 0;
-      }
       score += plus;
 
       setAnswer(RandomShape());
       setRight(generatePositions(1));
     } else {
-      // if (score > 50) {
-      //   <form>
-      //     <label>
-      //       Name:
-      //       <input type="text" name="name" />
-      //     </label>
-      //     <input type="submit" value="Submit" />
-      //   </form>
-      // }
-
-      let arrAy = [];
-      const myData = { name: 'Hej', score: score }
-   arrAy.push(myData);
-      window.localStorage.setItem('data', JSON.stringify(myData))
+     
+      const name = window.prompt('Name: ')
+      const myData = { name: name, score: score }
+      let oldArray = JSON.parse(window.localStorage.getItem("data"))
+      if (oldArray == null) {
+        oldArray = []
+      }
+      oldArray.push(myData);
+      window.localStorage.setItem('data', JSON.stringify(oldArray))
 
       //localStorage.clear();
       score = 0;

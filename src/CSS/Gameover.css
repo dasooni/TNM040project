@@ -27,7 +27,7 @@
 
 .gameover-header {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 100px;
+    font-size: 3vw;
     color: white;
     animation: header 1s  linear both;
 }
