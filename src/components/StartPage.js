@@ -13,6 +13,7 @@ import React, { useCallback } from "react";
 
 // MainTheme music
 import mainTheme from "../sounds/mainTheme.mp3";
+import klick from "../sounds/Klick_fx_2.wav";
 
 /**
  *
@@ -139,7 +140,9 @@ function Start({ appState, onPlayScreen, onScoreBoard }) {
       </div>
 
       <div className="scoreboardButton" onClick={onScoreBoard}>
-        <button className="text">Poängtavla</button>
+        <button className="text" onClick={() => Klick.play()}>
+          Poängtavla
+        </button>
       </div>
 
 

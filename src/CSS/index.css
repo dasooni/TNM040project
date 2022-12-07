@@ -112,6 +112,7 @@ code {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  background-color: white;
 }
 
 table {
@@ -125,7 +126,7 @@ th {
   padding-bottom: 12px;
   text-align: center;
   background-color: #9EDBEE;
-  color: white;
+  color: rgb(178, 125, 11);  
 }
 
 td {
