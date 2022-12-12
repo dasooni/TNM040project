@@ -12,14 +12,7 @@ import GameOver from "./components/GameOver";
 
 function App() {
   const [appState, setAppState] = useState("start");
- // const [scores, setScores] = useState([]);
 
-  // const addScore = (newScore) => {
-  //   setScores([...scores, newScore]);
-  //   setAppState("score");
-  // };
-  
-  console.log("1", "appState", appState);
   switch (appState) {
     case "start":
       return (
