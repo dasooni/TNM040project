@@ -27,9 +27,21 @@
 
 .gameover-header {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 3vw;
+    font-size: 10vw;
     color: white;
     animation: header 1s  linear both;
+}
+
+@media screen and (max-width: 600px) {
+    .gameover-header {
+        font-size: 15vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gameover-header {
+        font-size: 20vw;
+    }
 }
 
 .play-again {
@@ -64,7 +76,6 @@
     height: 50px;
     margin: auto;
 
-
 }
 
 .start-again {
@@ -79,7 +90,6 @@
     height: 50px;
     margin: auto;
     box-shadow: rgb(250, 250, 250) 0px 5px 15px;
-
 
 }
 

@@ -175,5 +175,26 @@ td {
   font-family: 'Luckiest Guy', sans-serif;
   color: rgb(211, 148, 12);  
   text-shadow: 1px 1px #423c20;
-  font-size: 3.1vw;
+  font-size: 5vw;
+}
+
+@media screen and (max-width: 600px) {
+  .titel {
+    font-size: 9.5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .scoreboard {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .scoreboard {
+    width: 100%;
+  }
+  .titel {
+    font-size: 12vw;
+  }
 }
